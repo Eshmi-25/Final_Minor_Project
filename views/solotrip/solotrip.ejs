@@ -1,0 +1,85 @@
+<% layout("/layouts/boilerplate") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo Trip Planner</title>
+    <link rel="stylesheet" href="../solotrip/solotrip.css">
+   
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Solo Trip Planner!</h1>
+        <div class="row mt-3">
+            <div class="col-8 offset-2">
+                <br><br>
+                <p>Plan your next adventure with us!</p>
+                <h3>Plan Your Trip</h3>
+                <form id="trip-form">
+                    <div class="form-group">
+                        <label for="start-date">Start Date:</label>
+                        <input type="date" id="start-date" name="start-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="end-date">End Date:</label>
+                        <input type="date" id="end-date" name="end-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="destination">Destination:</label>
+                        <select id="destination" name="destination">
+                            <!-- Populate this select element with destinations from the database -->
+                        </select>
+                    </div>
+                    <button type="submit">Book Now</button>
+                    <img class="solotrip" src="../solotrip/solotravel.jpg" alt="SoloTrip">
+                </form>
+                <script>
+                    // Client-side JavaScript code for fetching destinations from the server
+                    // and populating the 'destinations' unordered list and 'destination' select element
+                    fetch('/destinations')
+                        .then(response => response.json())
+                        .then(data => {
+                            const destinationsList = document.getElementById('destinations');
+                            data.forEach(destination => {
+                                const listItem = document.createElement('li');
+                                listItem.textContent = destination.name;
+                                destinationsList.appendChild(listItem);
+                            });
+
+                            const destinationSelect = document.getElementById('destination');
+                            data.forEach(destination => {
+                                const option = document.createElement('option');
+                                option.value = destination.id;
+                                option.textContent = destination.name;
+                                destinationSelect.appendChild(option);
+                            });
+                        });
+
+                    // Client-side JavaScript code for handling the form submission
+                    const tripForm = document.getElementById('trip-form');
+                    tripForm.addEventListener('submit', event => {
+                        event.preventDefault();
+
+                        const startDate = document.getElementById('start-date').value;
+                        const endDate = document.getElementById('end-date').value;
+                        const destinationId = document.getElementById('destination').value;
+
+                        fetch('/trips', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ start_date: startDate, end_date: endDate, destination_id: destinationId })
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log('Trip booked:', data);
+                            });
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

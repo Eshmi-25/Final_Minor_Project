@@ -1,0 +1,91 @@
+.container {
+    background: linear-gradient(to right, #ffff00, #ff0000);
+    color: #200101;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    padding: 20px;
+}
+h1 {
+    color: #200101;
+    margin-top: 0;
+    font-size: 32px;
+}
+h2 {
+    margin-top: 30px;
+}
+p {
+    font-size: 16px;
+}
+.button {
+    display: inline-block;
+    background-color: #860609;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-top: 50px;
+    margin-left: 2%;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.travel {
+    margin-left: 45%; 
+    margin-top: -10%;
+
+    /* Tablet-sized screens (768px and above) */
+    @media screen and (max-width: 768px) {
+        margin-left: 5px; 
+        margin-top: 5px; 
+}
+}
+
+.plane{
+    margin-right: 50%; 
+    margin-top: -38%;
+    
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+}
+
+.container2 {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+}
+
+.features-heading {
+    margin-bottom: 20px; 
+}
+
+.feature {
+    margin-bottom: 20px; 
+    width: 48%; 
+}
+
+.feature h2 {
+    margin-top: 0;
+}
+
+.no-bullets {
+    list-style-type: none;
+}
+
+
+.stars {
+    color: #200101; 
+    font-size: 20px; 
+   
+}
+
+.review p {
+    text-align: center; /* Align text at the center */
+}

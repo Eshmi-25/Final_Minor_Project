@@ -1,0 +1,66 @@
+
+<% layout("/layouts/boilerplate") %>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d59847.96642029886!2d85.78699352669527!3d20.362350902729172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1stourist%places!5e0!3m2!1sen!2sin!4v1710182452890!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+<!--------       REVIEW CODE
+<script>
+  // Client-side JavaScript code for fetching destinations from the server
+  // and populating the 'destinations' unordered list and 'destination' select element
+  fetch('/destinations')
+    .then(response => response.json())
+    .then(data => {
+      const destinationsList = document.getElementById('destinations');
+      data.forEach(destination => {
+        const listItem = document.createElement('li');
+        listItem.textContent = destination.name;
+        destinationsList.appendChild(listItem);
+      });
+
+      const destinationSelect = document.getElementById('destination');
+      data.forEach(destination => {
+        const option = document.createElement('option');
+        option.value = destination.id;
+        option.textContent = destination.name;
+        destinationSelect.appendChild(option);
+      });
+    });
+
+  // Client-side JavaScript code for handling the form submission
+  const tripForm = document.getElementById('trip-form');
+  tripForm.addEventListener('submit', event => {
+    event.preventDefault();
+
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
+    const destinationId = document.getElementById('destination').value;
+
+    fetch('/trips', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ start_date: startDate, end_date: endDate, destination_id: destinationId })
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response from the server here
+        if (response.ok) {
+          // Trip creation successful!
+          console.log("Trip created successfully!");
+          // Optionally, display a success message to the user (replace with appropriate UI logic)
+        } else {
+          // Handle errors (e.g., invalid data, server issues)
+          console.error("Error creating trip:", data.error);
+          // Optionally, display an error message to the user (replace with appropriate UI logic)
+        }
+      })
+      .catch(error => {
+        // Handle network errors or unexpected issues
+        console.error("Error submitting trip form:", error);
+        // Optionally, display an error message to the user (replace with appropriate UI logic)
+      });
+  });
+</script>
+
+          -->
