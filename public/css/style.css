@@ -31,38 +31,43 @@ h1,h2,h3 {
 }
 
 /* Footer */
-.f-info-links a{ 
-    text-decoration: none;
-    color: #222222;
-}
-.f-info-links a:hover{
-    text-decoration: underline;
-}
-.f-info-links, .f-info-brand{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.f-info-socials{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-}
-.f-info-socials i{
-    margin-right: 1rem;
-}
-.f-info{
+
+footer {
+    background-color: #101010;
+    padding: 20px;
     text-align: center;
-    height: 8rem;
-    background-color: #ebebeb;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: space-evenly;
+    margin-bottom: -10px;
+    
 }
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-info,
+.footer-links-div {
+    flex: 1;
+}
+
+.footer-info p {
+    margin: 5px 0;
+    color:rgb(255, 204, 0);
+}
+
+
+.footer-links-div {
+    text-align: center;
+    margin-left: 30px;
+    color: orangered;
+}
+
+.footer-heading {
+    margin-bottom: 10px;
+}
+
+
 
 /* Cards */
 
