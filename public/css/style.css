@@ -33,7 +33,7 @@ h1,h2,h3 {
 /* Footer */
 
 footer {
-    background-color: #101010;
+    background-color: #00080a;
     padding: 20px;
     text-align: center;
     margin-bottom: -10px;
@@ -68,7 +68,9 @@ footer {
 }
 
 
-
+.footer-world-img{
+    width:600px;
+}
 /* Cards */
 
 .card{
