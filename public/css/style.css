@@ -68,9 +68,43 @@ footer {
 }
 
 
-.footer-world-img{
+.footer-world-img,
+.footer-world-img2{
     width:600px;
 }
+
+/* Styles for screens with a width up to 786px */
+@media only screen and (max-width: 999px) {
+    .footer-world-img {
+        display: none;
+    }
+
+    .footer-world-img2 {
+        width: 100%; 
+        margin: 0; 
+    }
+}
+
+/*Styles for screens with a width between 808px and 1024px */
+@media only screen and (min-width: 1000px) and (max-width: 1270px) {
+    .footer-world-img2 {
+        width: 500px;
+        margin-left:0px;
+        
+    }
+    
+    .footer-world-img {
+        margin-right:-40px;
+        width: 500px;
+        
+    }
+
+    
+}
+
+
+
+
 /* Cards */
 
 .card{
